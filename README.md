@@ -1,167 +1,266 @@
-# flex
-why not make it better 
-# 🧵 TailorFlex
+Skul Africa Timetabling & Resource Optimization Engine
+🚀 The Future of School Management Starts Here
 
-**TailorFlex** is a lightweight tailoring management web app built for Nigerian and African tailors.  
-It helps fashion designers manage their orders, measurements, and due dates — *even when offline*.  
+Every school in Africa faces the same nightmare: building a functioning timetable. It's messy, stressful, slow, and usually done manually with trial, error, tears, and Excel sheets. Teachers complain, classes clash, rooms get double-booked, and the entire academic flow becomes chaotic.
 
-This MVP focuses on the **tailor’s side** only — simple, fast, and ready for local environments.
+The problem is not because schools are disorganized — it’s because there has never been a true intelligent engine designed for African school structures. Until now.
 
----
+This project introduces the Skul Africa Timetabling & Resource Optimization Engine — a standalone, high‑performance scheduling and optimization engine that solves one of the hardest problems in school administration.
 
-## 🚀 Features
+This engine runs independently of any backend (including Skul Africa’s NestJS app). It is a plug‑and‑play microservice that any app can integrate with via REST or gRPC.
 
-✅ Manage tailoring **orders** (style, fabric, due date, status)  
-✅ Add and update **measurements** for each order  
-✅ **Offline-first** — works without internet using local storage  
-✅ Multi-language support — **English**, **Pidgin**, **Yoruba**, **Hausa**  
-✅ Built with **NestJS (backend)** + **Next.js (frontend)**  
-✅ Ready for **PWA** support (installable like a mobile app)  
-✅ Local database (SQLite) for easy setup  
+💢 The Frustration (The Story)
 
----
+Every term, schools spend weeks trying to build a timetable. The workflow usually goes like this:
 
-## 🧩 Tech Stack
+The school writes subjects on a board
 
-| Layer | Technology | Purpose |
-|-------|-------------|----------|
-| **Backend** | [NestJS](https://nestjs.com) | API and business logic |
-| **Database** | SQLite + TypeORM | Simple, local data storage |
-| **Frontend** | [Next.js 15](https://nextjs.org) | Modern React-based web UI |
-| **Styling** | Tailwind CSS | Clean, responsive design |
-| **Offline Storage** | IndexedDB / localForage | Offline data caching |
-| **Localization** | react-i18next | Multi-language translations |
+They try to place teachers in time blocks
 
----
+Conflicts appear immediately
 
-## 🗂️ Project Structure
+Rooms clash
 
-TailorFlex/
-├── tailorflex-backend/
-│ ├── src/
-│ │ ├── tailor/
-│ │ │ ├── tailor.controller.ts
-│ │ │ ├── tailor.service.ts
-│ │ │ ├── entities/
-│ │ │ │ ├── tailor.entity.ts
-│ │ │ │ ├── order.entity.ts
-│ │ │ │ └── measurement.entity.ts
-│ │ │ └── dto/
-│ │ │ ├── create-order.dto.ts
-│ │ │ └── create-measurement.dto.ts
-│ │ ├── app.module.ts
-│ │ └── main.ts
-│ └── package.json
+Teachers exceed teaching limits
+
+Students end up with impossible schedules
+
+Sports, clubs, and labs get forgotten
+
+A single teacher becoming absent breaks the entire schedule
+
+And when they finally get something “usable”…
+
+Exams come → everything breaks again
+
+New class added → everything breaks again
+
+Teacher resigns → everything breaks again
+
+A parent complains → everything breaks again
+
+Schools deserve better.
+
+🎯 The Solution
+
+A Smart Timetabling & Resource Optimization Engine that:
+
+Understands teachers, classes, rooms, subjects, extracurriculars
+
+Automatically generates optimal timetables
+
+Handles clashes, fairness, and constraints
+
+Rebuilds the schedule instantly when something changes
+
+Provides clear explanations for decisions
+
+Works as a separate engine that any system can call
+
+This engine is designed to be:
+
+Fast
+
+Robust
+
+Scalable
+
+Difficult for competitors to replicate
+
+A game‑changer for African education
+
+🧠 Our Goal
+
+To build the most advanced, simple‑to‑use, AI‑powered timetabling system on the continent.
+
+By the end of this project, we will have:
+
+A production-grade optimization engine
+
+A pluggable microservice deployable anywhere
+
+A clear API that any backend can integrate with
+
+A system capable of solving real school constraints
+
+A foundation for future AI‑driven school management
+
+🏗 Technology Stack
+👨‍💻 Engine Language: Go (Golang)
+
+Chosen for:
+
+Ease of learning
+
+Fast development
+
+Great concurrency
+
+Stability for microservices
+
+Clean integration with gRPC and REST
+
+🧠 Optimization Brain: Google OR-Tools (C++)
+
+Handles:
+
+Complex constraints
+
+Optimization
+
+Timetabling logic
+
+Room allocation
+
+Class balancing
+
+🧩 Communication Layer
+
+gRPC (protobuf) — primary engine API
+
+REST — optional layer for easy integration
+
+🗃 Storage
+
+PostgreSQL (optional for schools that want history)
+
+Redis (for caching solves & sessions)
+
+🚀 Deployment
+
+Docker
+
+Kubernetes (optional)
+
+📡 Observability
+
+Prometheus
+
+Grafana
+
+
+
+# Skul Africa Rust Timetabling & Resource Optimization Engine
+
+## Project Structure (Rust Base)
+
+This is the base folder structure for the engine using Rust. It is designed for modularity, fast development, and integration with OR-Tools for optimization.
+
+```
+skul-engine-rust/
 │
-└── tailorflex-frontend/
+├── Cargo.toml               # Rust project manifest
 ├── src/
-│ ├── app/
-│ │ ├── page.tsx
-│ │ ├── orders/
-│ │ └── measurements/
-│ ├── components/
-│ ├── lib/
-│ └── styles/
-└── package.json
+│   ├── main.rs              # Entry point for the engine
+│   ├── lib.rs               # Core library for the engine logic
+│   ├── api/
+│   │   ├── mod.rs           # API module
+│   │   ├── server.rs        # gRPC / REST server setup
+│   │   └── handlers.rs      # Request handlers
+│   ├── solver/
+│   │   ├── mod.rs           # Solver module
+│   │   ├── ortools.rs       # OR-Tools solver integration
+│   │   └── scheduler.rs     # Timetable & optimization logic
+│   ├── models/
+│   │   ├── mod.rs
+│   │   ├── teacher.rs
+│   │   ├── class_group.rs
+│   │   ├── room.rs
+│   │   ├── constraint.rs
+│   │   └── schedule.rs
+│   ├── utils/
+│   │   ├── mod.rs
+│   │   ├── validation.rs    # Input validation helpers
+│   │   └── mapper.rs        # Transform data to solver format
+│   └── config.rs            # Configuration & environment variables
+│
+├── proto/
+│   ├── timetabling.proto     # Protobuf definitions for gRPC
+│   └── mod.rs
+│
+├── examples/
+│   └── sample_request.json   # Example request payloads
+│
+├── Dockerfile               # Docker setup
+└── README.md                # Documentation
+```
 
-yaml
-Copy code
+## Features Planned
 
----
+* Standalone microservice engine
+* gRPC & REST API
+* Timetable generation with constraints
+* Teacher availability, room allocation, class scheduling
+* Partial rescheduling (dynamic updates)
+* Integration with OR-Tools for optimization
+* Future ML integration for predictions
 
-## ⚙️ Setup Instructions
+🔌 Integration Example (NestJS → Engine)
+POST http://engine.skul.africa/solve
+{
+  "teachers": [...],
+  "rooms": [...],
+  "classes": [...],
+  "constraints": [...]
+}
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/<your-username>/tailorflex.git
-cd tailorflex
-2️⃣ Backend Setup (NestJS)
-bash
-Copy code
-cd tailorflex-backend
-npm install
-npm run start:dev
-Environment file example (.env):
+Response:
 
-ini
-Copy code
-DATABASE_URL=sqlite://./data/tailorflex.db
-PORT=5000
-3️⃣ Frontend Setup (Next.js)
-bash
-Copy code
-cd ../tailorflex-frontend
-npm install
-npm run dev
-App runs at:
-👉 http://localhost:3000
+{
+  "schedule": { ... },
+  "warnings": []
+}
+🧱 Core Concepts
+Teachers
 
-🧵 API Endpoints (MVP)
-Method	Endpoint	Description
-POST /orders	Create a new tailoring order	
-GET /orders	Get all orders	
-PATCH /orders/:id	Update order status	
-POST /measurements	Add measurement for an order	
+Subjects they teach
 
-🌍 Languages Supported
-Language	Code	Example
-English	en	“Add Order”
-Pidgin	pg	“Add Cloth Work”
-Yoruba	yo	“Fi Aṣẹ Kun”
-Hausa	ha	“Ƙara Oda”
+Availability windows
 
-You can easily add more translations inside frontend/src/lib/i18n.ts.
+Max hours per week
 
-📦 Offline Support
-Uses IndexedDB via localforage to store unsynced data.
+Rooms
 
-When internet returns, frontend syncs with backend through /sync.
+Capacity
 
-Perfect for tailors in areas with unstable internet.
+Special tags (lab, ICT, hall)
 
-🧠 Roadmap
- Tailor dashboard
+Class Groups
 
- Orders & measurements module
+Required subjects
 
- Language switcher
+Student count
 
- Customer portal
+Constraints
 
- WhatsApp notifications
+Hard constraints (must be obeyed)
 
- Cloud sync (Firebase / Supabase)
+Soft constraints (preferred)
 
- Mobile app (React Native)
+Objective Functions
 
-🛠️ Developer Notes
-Backend auto-migrates schema using TypeORM.
+Examples:
 
-Frontend can be converted to PWA (next-pwa plugin).
+Minimize teacher gaps
 
-Designed for both desktop and mobile browsers.
+Minimize class conflicts
 
-👩🏾‍🎨 Credits
-Author: [Your Name / @codeflex / @skul_africa]
-Idea: Solving real issues for Nigerian tailors who lose customer measurements during peak seasons.
+Balance workload
 
-🪄 License
-MIT © 2025 skul-africa Team
+Maximize room usage
 
+🚀 Vision
 
+We want Skul Africa to become the platform of choice for schools, and this engine is the foundation of a system that will:
 
----
+Transform school operations
 
+Save thousands of hours yearly
 
+Eliminate timetable disasters
 
+Predict scheduling problems before they happen
 
+Become a core engine other platforms rely on
 
-
-
-
-
-
-
-
-
-ChatGPT can make mistakes. Check important info.
+This is the beginning of a new era of African school technology.
