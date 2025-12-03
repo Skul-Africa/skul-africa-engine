@@ -1,0 +1,38 @@
+           ┌─────────────┐
+           │  Teacher    │
+           │  Uploads:   │
+           │  - Excel    │
+           │  - Word     │
+           │  - Image    │
+           │  - Manual   │
+           └─────┬───────┘
+                 │
+                 ▼
+        ┌───────────────────┐
+        │  Rust Engine      │
+        │  (Curriculum      │
+        │   Parser & DB)    │
+        └─────┬─────┬───────┘
+          Parse  Scan/Validate
+          │      │
+          ▼      ▼
+       ┌─────────────────┐
+       │  JSON Struct    │
+       │  (Curriculum)   │
+       └────────┬────────┘
+                │
+                ▼
+         ┌─────────────┐
+         │ SQLite DB   │
+         │ Tables:     │
+         │ - curriculums
+         │ - topics
+         │ - subtopics
+         │ - objectives
+         └─────────────┘
+                │
+        ┌───────┴────────┐
+        ▼                ▼
+   REST API            NestJS Backend
+  (axum/warp)          School Dashboard
+  Expose JSON           Display + Manage
