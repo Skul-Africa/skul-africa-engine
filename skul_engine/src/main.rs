@@ -1,13 +1,11 @@
 use simplelog::*;
 use std::fs::File;
 use std::io::{self, BufRead};
-use std::path::Path;
 use crate::router::handle_command;
 
 mod router;
-mod database;
-mod curriculum;
-mod utils;
+mod file_parser;
+mod student_processor;
 
 fn init_logger() {
     let _ = CombinedLogger::init(vec![
@@ -20,16 +18,6 @@ fn main() -> anyhow::Result<()> {
     init_logger();
     log::info!("skul_engine starting...");
 
-    let data_dir = Path::new("data");
-    if !data_dir.exists() {
-        std::fs::create_dir_all(data_dir)?;
-    }
-
-// // Remove these lines entirely:
-// let db = database::db::init_database("data/engine.db")?;
-// database::db::set_global_connection(db);
-
-
     let stdin = io::stdin();
     for line_res in stdin.lock().lines() {
         let line = line_res?;
@@ -38,9 +26,7 @@ fn main() -> anyhow::Result<()> {
         }
 
         match handle_command(&line) {
-            Ok(resp) => {
-                println!("{}", serde_json::to_string(&resp)?);
-            }
+            Ok(resp) => println!("{}", serde_json::to_string(&resp)?),
             Err(e) => {
                 let err = serde_json::json!({
                     "status": "error",
