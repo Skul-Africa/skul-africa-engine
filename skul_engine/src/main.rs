@@ -1,11 +1,11 @@
 use simplelog::*;
 use std::fs::File;
-use std::io::{self, BufRead};
-use crate::router::handle_command;
+use tokio::net::TcpListener;
 
 mod router;
 mod file_parser;
 mod student_processor;
+mod server;
 
 fn init_logger() {
     let _ = CombinedLogger::init(vec![
@@ -14,28 +14,15 @@ fn init_logger() {
     ]);
 }
 
-fn main() -> anyhow::Result<()> {
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
     init_logger();
-    log::info!("skul_engine starting...");
+    log::info!("skul_engine API starting...");
 
-    let stdin = io::stdin();
-    for line_res in stdin.lock().lines() {
-        let line = line_res?;
-        if line.trim().is_empty() {
-            continue;
-        }
+    let app = server::create_router();
 
-        match handle_command(&line) {
-            Ok(resp) => println!("{}", serde_json::to_string(&resp)?),
-            Err(e) => {
-                let err = serde_json::json!({
-                    "status": "error",
-                    "error": format!("{}", e)
-                });
-                println!("{}", err);
-            }
-        }
-    }
+    let listener = TcpListener::bind("0.0.0.0:8080").await?;
+    axum::serve(listener, app).await?;
 
     Ok(())
 }
