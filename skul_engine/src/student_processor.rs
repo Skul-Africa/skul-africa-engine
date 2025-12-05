@@ -1,5 +1,6 @@
 use serde::Serialize;
 use crate::file_parser::Row;
+use anyhow::Result;
 
 #[derive(Serialize)]
 pub struct Student {
@@ -9,7 +10,7 @@ pub struct Student {
     pub gender: String,
 }
 
-pub fn process_student(row: Row) -> anyhow::Result<String> {
+pub fn process_student(row: Row) -> Result<String> {
     if row.len() < 4 {
         return Err(anyhow::anyhow!("Row does not have enough columns"));
     }

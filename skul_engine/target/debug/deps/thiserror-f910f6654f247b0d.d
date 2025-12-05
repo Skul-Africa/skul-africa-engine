@@ -1,0 +1,14 @@
+/workspaces/skul-africa-engine/skul_engine/target/debug/deps/thiserror-f910f6654f247b0d.d: /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /workspaces/skul-africa-engine/skul_engine/target/debug/build/thiserror-6f45f823105f4291/out/private.rs
+
+/workspaces/skul-africa-engine/skul_engine/target/debug/deps/libthiserror-f910f6654f247b0d.rlib: /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /workspaces/skul-africa-engine/skul_engine/target/debug/build/thiserror-6f45f823105f4291/out/private.rs
+
+/workspaces/skul-africa-engine/skul_engine/target/debug/deps/libthiserror-f910f6654f247b0d.rmeta: /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs /home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs /workspaces/skul-africa-engine/skul_engine/target/debug/build/thiserror-6f45f823105f4291/out/private.rs
+
+/home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/lib.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/aserror.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/display.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/var.rs:
+/home/codespace/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.17/src/private.rs:
+/workspaces/skul-africa-engine/skul_engine/target/debug/build/thiserror-6f45f823105f4291/out/private.rs:
+
+# env-dep:OUT_DIR=/workspaces/skul-africa-engine/skul_engine/target/debug/build/thiserror-6f45f823105f4291/out
